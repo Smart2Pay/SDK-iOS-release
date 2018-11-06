@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389057218CAA9A00EE1309 /* AppDelegate.swift */; };
+		6338905A218CAA9A00EE1309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389059218CAA9A00EE1309 /* ViewController.swift */; };
+		6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6338905B218CAA9A00EE1309 /* Main.storyboard */; };
+		6338905F218CAA9C00EE1309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6338905E218CAA9C00EE1309 /* Assets.xcassets */; };
+		63389062218CAA9C00EE1309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */; };
+		634E1F5C219046160099AD88 /* PaymentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F55219046160099AD88 /* PaymentsService.swift */; };
+		634E1F61219046160099AD88 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F5A219046160099AD88 /* BaseService.swift */; };
+		634E1F672190465C0099AD88 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F652190465C0099AD88 /* Parser.swift */; };
+		634E1F6A219047490099AD88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F69219047490099AD88 /* Constants.swift */; };
+		634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6C2190487C0099AD88 /* ApiError.swift */; };
+		634E1F6F219077230099AD88 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6E219077230099AD88 /* Order.swift */; };
+		63B78E1B21923C9E00FDE1CF /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; };
+		63B78E1C21923C9E00FDE1CF /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		63B78E0D21921ECF00FDE1CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				63B78E1C21923C9E00FDE1CF /* Smart2Pay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		55DCEACB24D57C0BB2121017 /* Pods-Smart2Pay Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart2Pay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63389054218CAA9A00EE1309 /* Smart2Pay Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart2Pay Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63389057218CAA9A00EE1309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63389059218CAA9A00EE1309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6338905C218CAA9A00EE1309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6338905E218CAA9C00EE1309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63389061218CAA9C00EE1309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63389063218CAA9C00EE1309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634E1F55219046160099AD88 /* PaymentsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsService.swift; sourceTree = "<group>"; };
+		634E1F5A219046160099AD88 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		634E1F652190465C0099AD88 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		634E1F69219047490099AD88 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		634E1F6C2190487C0099AD88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		634E1F6E219077230099AD88 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Smart2Pay.framework; sourceTree = "<group>"; };
+		901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63389051218CAA9A00EE1309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B78E1B21923C9E00FDE1CF /* Smart2Pay.framework in Frameworks */,
+				E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		376DB2E78E71BF2DDEBAD586 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6338904B218CAA9A00EE1309 = {
+			isa = PBXGroup;
+			children = (
+				63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */,
+				63389056218CAA9A00EE1309 /* Smart2Pay Example */,
+				63389055218CAA9A00EE1309 /* Products */,
+				6BEE4200B468BECE201B2D12 /* Pods */,
+				376DB2E78E71BF2DDEBAD586 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63389055218CAA9A00EE1309 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63389054218CAA9A00EE1309 /* Smart2Pay Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63389056218CAA9A00EE1309 /* Smart2Pay Example */ = {
+			isa = PBXGroup;
+			children = (
+				634E1F69219047490099AD88 /* Constants.swift */,
+				63389057218CAA9A00EE1309 /* AppDelegate.swift */,
+				634E1F6B2190486C0099AD88 /* Models */,
+				634E1F632190465C0099AD88 /* Helpers */,
+				634E1F54219046160099AD88 /* Services */,
+				63389059218CAA9A00EE1309 /* ViewController.swift */,
+				6338905B218CAA9A00EE1309 /* Main.storyboard */,
+				6338905E218CAA9C00EE1309 /* Assets.xcassets */,
+				63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */,
+				63389063218CAA9C00EE1309 /* Info.plist */,
+			);
+			path = "Smart2Pay Example";
+			sourceTree = "<group>";
+		};
+		634E1F54219046160099AD88 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				634E1F5A219046160099AD88 /* BaseService.swift */,
+				634E1F55219046160099AD88 /* PaymentsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		634E1F632190465C0099AD88 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				634E1F652190465C0099AD88 /* Parser.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		634E1F6B2190486C0099AD88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				634E1F6C2190487C0099AD88 /* ApiError.swift */,
+				634E1F6E219077230099AD88 /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6BEE4200B468BECE201B2D12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55DCEACB24D57C0BB2121017 /* Pods-Smart2Pay Example.debug.xcconfig */,
+				901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63389053218CAA9A00EE1309 /* Smart2Pay Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63389066218CAA9C00EE1309 /* Build configuration list for PBXNativeTarget "Smart2Pay Example" */;
+			buildPhases = (
+				5FCB0F923408864CB127145D /* [CP] Check Pods Manifest.lock */,
+				63389050218CAA9A00EE1309 /* Sources */,
+				63389051218CAA9A00EE1309 /* Frameworks */,
+				63389052218CAA9A00EE1309 /* Resources */,
+				00D6AAF4E18D9BDFC457B579 /* [CP] Embed Pods Frameworks */,
+				63B78E0D21921ECF00FDE1CF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart2Pay Example";
+			productName = "Smart2Pay Example";
+			productReference = 63389054218CAA9A00EE1309 /* Smart2Pay Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6338904C218CAA9A00EE1309 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "David Jupijn";
+				TargetAttributes = {
+					63389053218CAA9A00EE1309 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 6338904F218CAA9A00EE1309 /* Build configuration list for PBXProject "Smart2Pay Example" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6338904B218CAA9A00EE1309;
+			productRefGroup = 63389055218CAA9A00EE1309 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63389053218CAA9A00EE1309 /* Smart2Pay Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63389052218CAA9A00EE1309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63389062218CAA9C00EE1309 /* LaunchScreen.storyboard in Resources */,
+				6338905F218CAA9C00EE1309 /* Assets.xcassets in Resources */,
+				6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00D6AAF4E18D9BDFC457B579 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FCB0F923408864CB127145D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smart2Pay Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63389050218CAA9A00EE1309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634E1F61219046160099AD88 /* BaseService.swift in Sources */,
+				634E1F672190465C0099AD88 /* Parser.swift in Sources */,
+				634E1F6F219077230099AD88 /* Order.swift in Sources */,
+				6338905A218CAA9A00EE1309 /* ViewController.swift in Sources */,
+				634E1F5C219046160099AD88 /* PaymentsService.swift in Sources */,
+				63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */,
+				634E1F6A219047490099AD88 /* Constants.swift in Sources */,
+				634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6338905B218CAA9A00EE1309 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6338905C218CAA9A00EE1309 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63389061218CAA9C00EE1309 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63389064218CAA9C00EE1309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63389065218CAA9C00EE1309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63389067218CAA9C00EE1309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DCEACB24D57C0BB2121017 /* Pods-Smart2Pay Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C9245339D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Smart2Pay Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63389068218CAA9C00EE1309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9C9245339D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Smart2Pay Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6338904F218CAA9A00EE1309 /* Build configuration list for PBXProject "Smart2Pay Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63389064218CAA9C00EE1309 /* Debug */,
+				63389065218CAA9C00EE1309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63389066218CAA9C00EE1309 /* Build configuration list for PBXNativeTarget "Smart2Pay Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63389067218CAA9C00EE1309 /* Debug */,
+				63389068218CAA9C00EE1309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6338904C218CAA9A00EE1309 /* Project object */;
+}
