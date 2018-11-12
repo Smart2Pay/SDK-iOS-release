@@ -11,7 +11,7 @@ import Smart2Pay
 import SwiftyJSON
 
 class ViewController: UIViewController, PaymentManagerDelegate {
-    let paymentManager = PaymentManager(value: 1)
+    let paymentManager = PaymentManager("com.smart2pay.example")
     
     override func viewDidLoad() {
         super.viewDidLoad()
