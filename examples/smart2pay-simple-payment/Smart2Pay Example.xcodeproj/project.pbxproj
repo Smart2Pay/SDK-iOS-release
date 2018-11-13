@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631BF445219B978600DA4434 /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; };
+		631BF446219B978600DA4434 /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389057218CAA9A00EE1309 /* AppDelegate.swift */; };
 		6338905A218CAA9A00EE1309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389059218CAA9A00EE1309 /* ViewController.swift */; };
 		6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6338905B218CAA9A00EE1309 /* Main.storyboard */; };
@@ -18,8 +20,6 @@
 		634E1F6A219047490099AD88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F69219047490099AD88 /* Constants.swift */; };
 		634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6C2190487C0099AD88 /* ApiError.swift */; };
 		634E1F6F219077230099AD88 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6E219077230099AD88 /* Order.swift */; };
-		63B78E1B21923C9E00FDE1CF /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; };
-		63B78E1C21923C9E00FDE1CF /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				63B78E1C21923C9E00FDE1CF /* Smart2Pay.framework in Embed Frameworks */,
+				631BF446219B978600DA4434 /* Smart2Pay.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B78E1B21923C9E00FDE1CF /* Smart2Pay.framework in Frameworks */,
+				631BF445219B978600DA4434 /* Smart2Pay.framework in Frameworks */,
 				E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

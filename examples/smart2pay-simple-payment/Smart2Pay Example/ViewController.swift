@@ -11,11 +11,12 @@ import Smart2Pay
 import SwiftyJSON
 
 class ViewController: UIViewController, PaymentManagerDelegate {
-    let paymentManager = PaymentManager("com.smart2pay.example")
+    let paymentManager = PaymentManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        paymentManager.set(urlScheme: urlScheme)
     }
     
     private func pay(withType type: Payment.PaymentProvider) {
@@ -72,7 +73,7 @@ class ViewController: UIViewController, PaymentManagerDelegate {
     // MARK - PaymentManagerDelegate
     
     func onPaymentSuccess(_ payment: Payment, _ body: [String: Any]) {
-        print("onPaymentSuccess :(")
+        print("onPaymentSuccess :)")
         verify(payment: payment, body: body)
     }
     
