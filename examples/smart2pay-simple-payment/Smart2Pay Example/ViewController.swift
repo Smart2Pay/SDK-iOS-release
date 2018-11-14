@@ -64,7 +64,7 @@ class ViewController: UIViewController, PaymentManagerDelegate {
     
     private func verify(payment: Payment, body: [String: Any]) {
         PaymentsService.postPaymentsVerification(payment, body) { (success, error) in
-            if error == nil {
+            if success {
                 print("Payment verified! :D")
             }
         }
