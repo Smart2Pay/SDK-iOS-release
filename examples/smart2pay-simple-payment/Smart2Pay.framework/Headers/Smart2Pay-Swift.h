@@ -163,6 +163,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import Foundation;
+@import ObjectiveC;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -179,6 +182,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="Smart2Pay",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
+
+
+SWIFT_CLASS("_TtC9Smart2Pay7Payment")
+@interface Payment : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC9Smart2Pay14PaymentManager")
+@interface PaymentManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PaymentManager * _Nonnull shared;)
++ (PaymentManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (void)setWithUrlScheme:(NSString * _Nonnull)urlScheme;
+- (void)payWithPayment:(Payment * _Nonnull)payment;
+- (void)processOrderWithUrl:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP9Smart2Pay22PaymentManagerDelegate_")
+@protocol PaymentManagerDelegate
+- (void)onPaymentSuccess:(Payment * _Nonnull)payment :(NSDictionary<NSString *, id> * _Nonnull)body;
+- (void)onPaymentFailure:(Payment * _Nonnull)payment;
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
