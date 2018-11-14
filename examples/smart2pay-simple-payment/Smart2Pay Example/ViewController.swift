@@ -21,7 +21,7 @@ class ViewController: UIViewController, PaymentManagerDelegate {
     
     private func pay(withType type: Payment.PaymentProvider) {
         let order = Order()
-        order.amount = 10
+        order.amount = 11
         order.currency = "CNY"
         order.type = type
         
