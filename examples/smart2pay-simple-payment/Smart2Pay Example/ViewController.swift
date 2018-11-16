@@ -13,6 +13,9 @@ import SwiftyJSON
 class ViewController: UIViewController, PaymentManagerDelegate {
     let paymentManager = PaymentManager.shared
     
+    @IBOutlet weak var currencyTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,12 +23,14 @@ class ViewController: UIViewController, PaymentManagerDelegate {
     }
     
     private func pay(withType type: Payment.PaymentProvider) {
-        let order = Order()
-        order.amount = 11
-        order.currency = "CNY"
-        order.type = type
-        
-        placeOrder(order: order)
+        if amountTextField.text != ""  {
+            let order = Order()
+            order.amount = Int(amountTextField.text!) ?? 11
+            order.currency = currencyTextField.text ?? "CNY"
+            order.type = type
+            
+            placeOrder(order: order)
+        }
     }
     
     @IBAction func didClickPayButton(sender: UIButton) {
