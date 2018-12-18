@@ -10,7 +10,7 @@
 		631BF445219B978600DA4434 /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; };
 		631BF446219B978600DA4434 /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389057218CAA9A00EE1309 /* AppDelegate.swift */; };
-		6338905A218CAA9A00EE1309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389059218CAA9A00EE1309 /* ViewController.swift */; };
+		6338905A218CAA9A00EE1309 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389059218CAA9A00EE1309 /* PaymentViewController.swift */; };
 		6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6338905B218CAA9A00EE1309 /* Main.storyboard */; };
 		6338905F218CAA9C00EE1309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6338905E218CAA9C00EE1309 /* Assets.xcassets */; };
 		63389062218CAA9C00EE1309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart2Pay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63389054218CAA9A00EE1309 /* Smart2Pay Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart2Pay Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63389057218CAA9A00EE1309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63389059218CAA9A00EE1309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63389059218CAA9A00EE1309 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		6338905C218CAA9A00EE1309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6338905E218CAA9C00EE1309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63389061218CAA9C00EE1309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				634E1F6B2190486C0099AD88 /* Models */,
 				634E1F632190465C0099AD88 /* Helpers */,
 				634E1F54219046160099AD88 /* Services */,
-				63389059218CAA9A00EE1309 /* ViewController.swift */,
+				63389059218CAA9A00EE1309 /* PaymentViewController.swift */,
 				6338905B218CAA9A00EE1309 /* Main.storyboard */,
 				6338905E218CAA9C00EE1309 /* Assets.xcassets */,
 				63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */,
@@ -275,7 +275,7 @@
 				634E1F61219046160099AD88 /* BaseService.swift in Sources */,
 				634E1F672190465C0099AD88 /* Parser.swift in Sources */,
 				634E1F6F219077230099AD88 /* Order.swift in Sources */,
-				6338905A218CAA9A00EE1309 /* ViewController.swift in Sources */,
+				6338905A218CAA9A00EE1309 /* PaymentViewController.swift in Sources */,
 				634E1F5C219046160099AD88 /* PaymentsService.swift in Sources */,
 				63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */,
 				634E1F6A219047490099AD88 /* Constants.swift in Sources */,

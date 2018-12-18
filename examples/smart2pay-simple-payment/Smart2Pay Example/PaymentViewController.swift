@@ -10,7 +10,7 @@ import UIKit
 import Smart2Pay
 import SwiftyJSON
 
-class ViewController: UIViewController, PaymentManagerDelegate {
+class PaymentViewController: UIViewController, PaymentManagerDelegate {
     let paymentManager = PaymentManager.shared
     
     @IBOutlet weak var currencyTextField: UITextField!
