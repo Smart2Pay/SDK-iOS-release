@@ -81,7 +81,15 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         // Get the API key first
         AuthorizationService.postAuthorizationApiKey(){ (apiKey, error) in
             if error == nil {
-                print("Apikey is \(apiKey ?? "nil")" )
+                print("Apikey: \(apiKey ?? "nil")" )
+                AuthorizationService.postCardAuthentication(dummyCreditCardData(), apiKey: apiKey!, debug: true
+                    , completionHandler: { (creditCardToken, error) in
+                        if error != nil {
+                            print(error!)
+                        } else {
+                            print("Credit Card Token: \(creditCardToken!)")
+                        }
+                })
             } else {
                 print(error!)
             }

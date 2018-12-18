@@ -35,22 +35,22 @@ class AuthorizationService: BaseService {
     }
     
     // This will be moved to the SDK!
-    static func postCardAuthentication(_ parameters: [String: Any], apiToken: String, debug: Bool = false, completionHandler: @escaping (_ json: JSON?, _ error: ApiError?) -> Void) {
+    static func postCardAuthentication(_ parameters: [String: Any], apiKey: String, debug: Bool = false, completionHandler: @escaping (_ creditCardToken: String?, _ error: ApiError?) -> Void) {
         let url = debug ? debugCardAuthenticationApiUrl : cardAuthenticationApiUrl
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Basic \(apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
             manager.request(request)
                 .validate()
                 .responseJSON { response in
-                    if response.result.isSuccess {
-                        if let value = response.result.value {
-                            let json = JSON(value)
-                            completionHandler(json, nil)
-                        }
+                    if response.result.isSuccess, let value = response.result.value {
+                        let json = JSON(value)
+                        let creditCardToken = json["CardAuthentication"]["CreditCardToken"]["Value"].stringValue
+                        completionHandler(creditCardToken, nil)
                     } else if response.result.isFailure {
                         let apiErrorResponse = apiErrorFor(response, error: response.result.error! as NSError, params: nil)
                         completionHandler(nil, apiErrorResponse)
