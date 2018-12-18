@@ -94,6 +94,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-Rj-NoZ">
+                                <rect key="frame" x="137.5" y="412" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.67915976047515869" green="0.58986841024825987" blue="0.040340733590916562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="BYq-xw-FLm"/>
+                                    <constraint firstAttribute="height" constant="30" id="aUu-0j-qxJ"/>
+                                </constraints>
+                                <state key="normal" title="Credit Card">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickPayButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EN1-tJ-bJB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -106,6 +121,8 @@
                             <constraint firstItem="YCI-RN-PFk" firstAttribute="leading" secondItem="1lq-aL-9Tt" secondAttribute="leading" id="GBk-ym-fj1"/>
                             <constraint firstItem="FBw-Hb-bZa" firstAttribute="centerX" secondItem="Ehz-wG-NLA" secondAttribute="centerX" id="Vlm-Qr-bgx"/>
                             <constraint firstItem="hd4-cZ-TBN" firstAttribute="centerX" secondItem="Ehz-wG-NLA" secondAttribute="centerX" id="Way-82-fQh"/>
+                            <constraint firstItem="cuc-Rj-NoZ" firstAttribute="top" secondItem="FBw-Hb-bZa" secondAttribute="bottom" constant="41" id="Wuy-sR-gbA"/>
+                            <constraint firstItem="cuc-Rj-NoZ" firstAttribute="centerX" secondItem="Ehz-wG-NLA" secondAttribute="centerX" id="cy4-xl-LXU"/>
                             <constraint firstItem="FBw-Hb-bZa" firstAttribute="top" secondItem="bbu-QS-730" secondAttribute="bottom" constant="40" id="gtV-Nn-ssG"/>
                             <constraint firstItem="1lq-aL-9Tt" firstAttribute="top" secondItem="8OU-bs-00Y" secondAttribute="bottom" constant="20" id="i4W-Eq-zzi"/>
                             <constraint firstItem="YCI-RN-PFk" firstAttribute="centerX" secondItem="Ehz-wG-NLA" secondAttribute="centerX" id="jDc-zo-FsI"/>
