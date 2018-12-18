@@ -20,6 +20,7 @@
 		634E1F6A219047490099AD88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F69219047490099AD88 /* Constants.swift */; };
 		634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6C2190487C0099AD88 /* ApiError.swift */; };
 		634E1F6F219077230099AD88 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6E219077230099AD88 /* Order.swift */; };
+		639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240F121C90E9600B4E608 /* AuthorizationService.swift */; };
 		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		634E1F69219047490099AD88 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		634E1F6C2190487C0099AD88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		634E1F6E219077230099AD88 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		639240F121C90E9600B4E608 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Smart2Pay.framework; sourceTree = "<group>"; };
 		901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				634E1F5A219046160099AD88 /* BaseService.swift */,
+				639240F121C90E9600B4E608 /* AuthorizationService.swift */,
 				634E1F55219046160099AD88 /* PaymentsService.swift */,
 			);
 			path = Services;
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */,
 				634E1F61219046160099AD88 /* BaseService.swift in Sources */,
 				634E1F672190465C0099AD88 /* Parser.swift in Sources */,
 				634E1F6F219077230099AD88 /* Order.swift in Sources */,
