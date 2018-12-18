@@ -39,6 +39,8 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
             pay(withType: .ALIPAY)
         case 1:
             pay(withType: .WECHAT)
+        case 2:
+            processCreditCard()
         default:
             print("Make sure to place a correct tag on your pay button!")
         }
@@ -71,6 +73,17 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         PaymentsService.postPaymentsVerification(payment, body) { (success, error) in
             if success {
                 print("Payment verified! :D")
+            }
+        }
+    }
+    
+    private func processCreditCard() {
+        // Get the API key first
+        AuthorizationService.postAuthorizationApiKey(){ (apiKey, error) in
+            if error == nil {
+                print("Apikey is \(apiKey ?? "nil")" )
+            } else {
+                print(error!)
             }
         }
     }
