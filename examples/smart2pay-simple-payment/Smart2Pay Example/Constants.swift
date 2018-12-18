@@ -25,7 +25,7 @@ func dummyCreditCardData() -> [String: Any] {
     
     customer["FirstName"] = "John"
     customer["LastName"] = "Doe"
-    customer["Email"] = "android@sdktest.com"
+    customer["Email"] = "ios@sdktest.com"
     customer["SocialSecurityNumber"] = "00003456789"
     
     billingAddress["Country"] = "BR"
