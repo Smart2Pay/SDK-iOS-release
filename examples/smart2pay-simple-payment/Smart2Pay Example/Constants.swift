@@ -44,8 +44,3 @@ func dummyCreditCardData() -> [String: Any] {
     
     return body
 }
-
-// Move to SDK!
-let cardAuthenticationApiUrl = "https://secure.smart2pay.com/v1/card/authenticate/"
-let debugCardAuthenticationApiUrl = "https://securetest.smart2pay.com/v1/card/authenticate/"
-
