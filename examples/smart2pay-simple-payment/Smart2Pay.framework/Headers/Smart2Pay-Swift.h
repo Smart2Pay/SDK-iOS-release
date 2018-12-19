@@ -168,6 +168,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 #endif
 
+#import "/Users/David/Rising Step/Projects/iOS/Smart2PayFramework/Smart2Pay/Bridging-Header.h"
+
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 #if __has_warning("-Wpragma-clang-attribute")
@@ -184,6 +186,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+SWIFT_CLASS("_TtC9Smart2Pay8ApiError")
+@interface ApiError : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC9Smart2Pay7Payment")
 @interface Payment : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -197,6 +206,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) PaymentManag
 - (void)setWithUrlScheme:(NSString * _Nonnull)urlScheme;
 - (void)payWithPayment:(Payment * _Nonnull)payment;
 - (void)processOrderWithUrl:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options;
+- (void)authenticateCreditCard:(NSDictionary<NSString *, id> * _Nonnull)parameters apiKey:(NSString * _Nonnull)apiKey debug:(BOOL)debug completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -205,6 +215,16 @@ SWIFT_PROTOCOL("_TtP9Smart2Pay22PaymentManagerDelegate_")
 @protocol PaymentManagerDelegate
 - (void)onPaymentSuccess:(Payment * _Nonnull)payment :(NSDictionary<NSString *, id> * _Nonnull)body;
 - (void)onPaymentFailure:(Payment * _Nonnull)payment;
+@end
+
+@class BaseReq;
+@class BaseResp;
+
+SWIFT_CLASS("_TtC9Smart2Pay21WeChatResponseHandler")
+@interface WeChatResponseHandler : NSObject <WXApiDelegate>
+- (void)onReq:(BaseReq * _Nullable)req;
+- (void)onResp:(BaseResp * _Nullable)resp;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #if __has_attribute(external_source_symbol)
