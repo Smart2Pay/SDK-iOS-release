@@ -12,14 +12,18 @@ import SwiftyJSON
 
 class PaymentViewController: UIViewController, PaymentManagerDelegate {
     let paymentManager = PaymentManager.shared
+    var creditCard: CreditCard? = nil
     
     @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var creditCardView: CreditCardFormView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         paymentManager.set(urlScheme: urlScheme)
+        
+        self.perform(#selector(setupCreditCard), with: nil, afterDelay: 0.1)
     }
     
     private func pay(withType type: Payment.PaymentProvider) {
@@ -77,12 +81,22 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         }
     }
     
+    // Credit Card
+    
+    @objc private func setupCreditCard() {
+        
+        creditCard = CreditCard(holderName: "John Doe", number: "4111111111111111", expirationMonth: 2, expirationYear: 2019, securityCode: "321")
+        creditCardView.cardHolderString = creditCard!.holderName
+        creditCardView.paymentCardTextFieldDidChange(cardNumber: creditCard!.number, expirationYear: creditCard!.expirationYear, expirationMonth: creditCard!.expirationMonth, cvc: creditCard!.securityCode)
+        
+    }
+    
     private func processCreditCard() {
         // Get the API key first
         AuthorizationService.postAuthorizationApiKey(){ (apiKey, error) in
             if error == nil {
                 print("Apikey: \(apiKey ?? "nil")" )
-                self.paymentManager.authenticateCreditCard(dummyCreditCardData(), apiKey: apiKey!, debug: true
+                self.paymentManager.authenticateCreditCard(self.creditCard!.getParameters(), apiKey: apiKey!, debug: true
                     , completionHandler: { (creditCardToken, error) in
                         if error != nil {
                             print(error!)
@@ -107,4 +121,3 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         print("onPaymentFailure :(")
     }
 }
-

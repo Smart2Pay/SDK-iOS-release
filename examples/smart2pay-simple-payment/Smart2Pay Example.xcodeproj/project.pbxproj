@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		631BF445219B978600DA4434 /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; };
 		631BF446219B978600DA4434 /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		632058F421CCF12900E36511 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632058F321CCF12900E36511 /* CreditCard.swift */; };
 		63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389057218CAA9A00EE1309 /* AppDelegate.swift */; };
 		6338905A218CAA9A00EE1309 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63389059218CAA9A00EE1309 /* PaymentViewController.swift */; };
 		6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6338905B218CAA9A00EE1309 /* Main.storyboard */; };
@@ -20,6 +21,18 @@
 		634E1F6A219047490099AD88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F69219047490099AD88 /* Constants.swift */; };
 		634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6C2190487C0099AD88 /* ApiError.swift */; };
 		634E1F6F219077230099AD88 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1F6E219077230099AD88 /* Order.swift */; };
+		637FBF8A21CBD4A9006E35FE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF7D21CBD4A9006E35FE /* Utilities.swift */; };
+		637FBF8B21CBD4A9006E35FE /* AKMaskFieldEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF7E21CBD4A9006E35FE /* AKMaskFieldEvent.swift */; };
+		637FBF8C21CBD4A9006E35FE /* CreditCardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF7F21CBD4A9006E35FE /* CreditCardFormView.swift */; };
+		637FBF8D21CBD4A9006E35FE /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8021CBD4A9006E35FE /* CreditCardValidator.swift */; };
+		637FBF8E21CBD4A9006E35FE /* AKMaskFieldBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8121CBD4A9006E35FE /* AKMaskFieldBlock.swift */; };
+		637FBF8F21CBD4A9006E35FE /* AKMaskField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8221CBD4A9006E35FE /* AKMaskField.swift */; };
+		637FBF9021CBD4A9006E35FE /* AKMaskFieldUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8321CBD4A9006E35FE /* AKMaskFieldUtility.swift */; };
+		637FBF9121CBD4A9006E35FE /* CreditCardValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8421CBD4A9006E35FE /* CreditCardValidationType.swift */; };
+		637FBF9221CBD4A9006E35FE /* AKMaskFieldBlockCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8521CBD4A9006E35FE /* AKMaskFieldBlockCharacter.swift */; };
+		637FBF9321CBD4A9006E35FE /* AKMaskFieldPatternCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8621CBD4A9006E35FE /* AKMaskFieldPatternCharacter.swift */; };
+		637FBF9421CBD4A9006E35FE /* AKMaskFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8721CBD4A9006E35FE /* AKMaskFieldStatus.swift */; };
+		637FBF9521CBD4A9006E35FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637FBF8921CBD4A9006E35FE /* Images.xcassets */; };
 		639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240F121C90E9600B4E608 /* AuthorizationService.swift */; };
 		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +54,7 @@
 /* Begin PBXFileReference section */
 		55DCEACB24D57C0BB2121017 /* Pods-Smart2Pay Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart2Pay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		632058F321CCF12900E36511 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		63389054218CAA9A00EE1309 /* Smart2Pay Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart2Pay Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63389057218CAA9A00EE1309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63389059218CAA9A00EE1309 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +68,18 @@
 		634E1F69219047490099AD88 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		634E1F6C2190487C0099AD88 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		634E1F6E219077230099AD88 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		637FBF7D21CBD4A9006E35FE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		637FBF7E21CBD4A9006E35FE /* AKMaskFieldEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldEvent.swift; sourceTree = "<group>"; };
+		637FBF7F21CBD4A9006E35FE /* CreditCardFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFormView.swift; sourceTree = "<group>"; };
+		637FBF8021CBD4A9006E35FE /* CreditCardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardValidator.swift; sourceTree = "<group>"; };
+		637FBF8121CBD4A9006E35FE /* AKMaskFieldBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldBlock.swift; sourceTree = "<group>"; };
+		637FBF8221CBD4A9006E35FE /* AKMaskField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskField.swift; sourceTree = "<group>"; };
+		637FBF8321CBD4A9006E35FE /* AKMaskFieldUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldUtility.swift; sourceTree = "<group>"; };
+		637FBF8421CBD4A9006E35FE /* CreditCardValidationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardValidationType.swift; sourceTree = "<group>"; };
+		637FBF8521CBD4A9006E35FE /* AKMaskFieldBlockCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldBlockCharacter.swift; sourceTree = "<group>"; };
+		637FBF8621CBD4A9006E35FE /* AKMaskFieldPatternCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldPatternCharacter.swift; sourceTree = "<group>"; };
+		637FBF8721CBD4A9006E35FE /* AKMaskFieldStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKMaskFieldStatus.swift; sourceTree = "<group>"; };
+		637FBF8921CBD4A9006E35FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		639240F121C90E9600B4E608 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Smart2Pay.framework; sourceTree = "<group>"; };
 		901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +109,7 @@
 		6338904B218CAA9A00EE1309 = {
 			isa = PBXGroup;
 			children = (
+				637FBF7B21CBD4A9006E35FE /* CreditCardForm */,
 				63B78E1A21923C9E00FDE1CF /* Smart2Pay.framework */,
 				63389056218CAA9A00EE1309 /* Smart2Pay Example */,
 				63389055218CAA9A00EE1309 /* Products */,
@@ -139,8 +166,36 @@
 			children = (
 				634E1F6C2190487C0099AD88 /* ApiError.swift */,
 				634E1F6E219077230099AD88 /* Order.swift */,
+				632058F321CCF12900E36511 /* CreditCard.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		637FBF7B21CBD4A9006E35FE /* CreditCardForm */ = {
+			isa = PBXGroup;
+			children = (
+				637FBF7C21CBD4A9006E35FE /* Classes */,
+				637FBF8921CBD4A9006E35FE /* Images.xcassets */,
+			);
+			path = CreditCardForm;
+			sourceTree = "<group>";
+		};
+		637FBF7C21CBD4A9006E35FE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				637FBF7D21CBD4A9006E35FE /* Utilities.swift */,
+				637FBF7E21CBD4A9006E35FE /* AKMaskFieldEvent.swift */,
+				637FBF7F21CBD4A9006E35FE /* CreditCardFormView.swift */,
+				637FBF8021CBD4A9006E35FE /* CreditCardValidator.swift */,
+				637FBF8121CBD4A9006E35FE /* AKMaskFieldBlock.swift */,
+				637FBF8221CBD4A9006E35FE /* AKMaskField.swift */,
+				637FBF8321CBD4A9006E35FE /* AKMaskFieldUtility.swift */,
+				637FBF8421CBD4A9006E35FE /* CreditCardValidationType.swift */,
+				637FBF8521CBD4A9006E35FE /* AKMaskFieldBlockCharacter.swift */,
+				637FBF8621CBD4A9006E35FE /* AKMaskFieldPatternCharacter.swift */,
+				637FBF8721CBD4A9006E35FE /* AKMaskFieldStatus.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		6BEE4200B468BECE201B2D12 /* Pods */ = {
@@ -214,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63389062218CAA9C00EE1309 /* LaunchScreen.storyboard in Resources */,
+				637FBF9521CBD4A9006E35FE /* Images.xcassets in Resources */,
 				6338905F218CAA9C00EE1309 /* Assets.xcassets in Resources */,
 				6338905D218CAA9A00EE1309 /* Main.storyboard in Resources */,
 			);
@@ -278,12 +334,24 @@
 				639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */,
 				634E1F61219046160099AD88 /* BaseService.swift in Sources */,
 				634E1F672190465C0099AD88 /* Parser.swift in Sources */,
+				637FBF9021CBD4A9006E35FE /* AKMaskFieldUtility.swift in Sources */,
+				637FBF8C21CBD4A9006E35FE /* CreditCardFormView.swift in Sources */,
+				637FBF8E21CBD4A9006E35FE /* AKMaskFieldBlock.swift in Sources */,
+				637FBF9421CBD4A9006E35FE /* AKMaskFieldStatus.swift in Sources */,
 				634E1F6F219077230099AD88 /* Order.swift in Sources */,
 				6338905A218CAA9A00EE1309 /* PaymentViewController.swift in Sources */,
+				632058F421CCF12900E36511 /* CreditCard.swift in Sources */,
+				637FBF9321CBD4A9006E35FE /* AKMaskFieldPatternCharacter.swift in Sources */,
+				637FBF9221CBD4A9006E35FE /* AKMaskFieldBlockCharacter.swift in Sources */,
 				634E1F5C219046160099AD88 /* PaymentsService.swift in Sources */,
+				637FBF8B21CBD4A9006E35FE /* AKMaskFieldEvent.swift in Sources */,
 				63389058218CAA9A00EE1309 /* AppDelegate.swift in Sources */,
+				637FBF8D21CBD4A9006E35FE /* CreditCardValidator.swift in Sources */,
 				634E1F6A219047490099AD88 /* Constants.swift in Sources */,
+				637FBF8A21CBD4A9006E35FE /* Utilities.swift in Sources */,
+				637FBF9121CBD4A9006E35FE /* CreditCardValidationType.swift in Sources */,
 				634E1F6D2190487C0099AD88 /* ApiError.swift in Sources */,
+				637FBF8F21CBD4A9006E35FE /* AKMaskField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
