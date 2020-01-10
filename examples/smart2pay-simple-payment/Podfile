@@ -3,6 +3,7 @@
 
 target 'Smart2Pay Example' do
   use_frameworks!
-  pod 'Alamofire', '~> 4.7'
-  pod 'SwiftyJSON', '~> 4.0'
+  inhibit_all_warnings!
+  pod 'Alamofire', '~> 4.9.1'
+  pod 'SwiftyJSON', '~> 5.0.0'
 end
