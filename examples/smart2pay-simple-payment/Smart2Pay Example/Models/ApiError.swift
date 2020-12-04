@@ -23,18 +23,18 @@ class ApiError {
     return "message: \(message!) statusCode: \(statusCode!)"
   }
 
-  convenience init(response: DataResponse<Any>) {
+  convenience init(response: AFDataResponse<Any>) {
     self.init()
     update(response)
   }
 
-  convenience init(response: DataResponse<Any>, error: NSError, params: [String: AnyObject]?) {
+  convenience init(response: AFDataResponse<Any>, error: NSError, params: [String: AnyObject]?) {
     self.init(response: response)
     self.nsError = error
     self.params = params
   }
 
-  func update(_ response: DataResponse<Any>) {
+  func update(_ response: AFDataResponse<Any>) {
     do {
         let json = try JSON(data: response.data!)
         print(json["errors"])

@@ -23,15 +23,18 @@ class PaymentsService: BaseService {
             manager.request(request)
                 .validate()
                 .responseJSON { response in
-                    if response.result.isSuccess {
-                        if let value = response.result.value {
-                            let json = JSON(value)
-                            completionHandler(json, nil)
+                    
+                    switch response.result {
+                        case .success(let value):
+                            if let value = response.value {
+                                let json = JSON(value)
+                                completionHandler(json, nil)
+                            }
+                        case .failure(let error): break
+                            // error handling
+                            let apiErrorResponse = apiErrorFor(response, error: response.error! as NSError, params: nil)
+                            completionHandler(nil, apiErrorResponse)
                         }
-                    } else if response.result.isFailure {
-                        let apiErrorResponse = apiErrorFor(response, error: response.result.error! as NSError, params: nil)
-                        completionHandler(nil, apiErrorResponse)
-                    }
             }
         } catch {
             print(error)
@@ -49,18 +52,21 @@ class PaymentsService: BaseService {
             manager.request(request)
                 .validate()
                 .responseJSON { response in
-                    if response.result.isSuccess {
-                        let dict = response.result.value! as! [String: Any]
-                        
-                        if dict["status"] as! String == "Success" {
-                            completionHandler(true, nil)
-                        } else {
-                            completionHandler(false, nil)
+                    switch response.result {
+                        case .success(let value):
+                            let dict = response.value! as! [String: Any]
+                            
+                            if dict["status"] as! String == "Success" {
+                                completionHandler(true, nil)
+                            } else {
+                                completionHandler(false, nil)
+                            }
+                        case .failure(let error): break
+                            // error handling
+                            let apiErrorResponse = apiErrorFor(response, error: response.error! as NSError, params: nil)
+                            completionHandler(false, apiErrorResponse)
                         }
-                    } else if response.result.isFailure {
-                        let apiErrorResponse = apiErrorFor(response, error: response.result.error! as NSError, params: nil)
-                        completionHandler(false, apiErrorResponse)
-                    }
+                    
                 }
         } catch {
             print(error)

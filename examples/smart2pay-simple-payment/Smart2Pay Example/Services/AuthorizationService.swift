@@ -22,15 +22,18 @@ class AuthorizationService: BaseService {
         manager.request(request)
             .validate()
             .responseJSON { response in
-                if response.result.isSuccess {
-                    if let value = response.result.value {
-                        let json = JSON(value)
-                        completionHandler(json["ApiKey"]["Value"].stringValue, nil)
+                switch response.result {
+                    case .success(let value):
+                        if let value = response.value {
+                            let json = JSON(value)
+                            completionHandler(json["ApiKey"]["Value"].stringValue, nil)
+                        }
+                    case .failure(let error): break
+                        // error handling
+                        let apiErrorResponse = apiErrorFor(response, error: response.error! as NSError, params: nil)
+                        completionHandler(nil, apiErrorResponse)
                     }
-                } else if response.result.isFailure {
-                    let apiErrorResponse = apiErrorFor(response, error: response.result.error! as NSError, params: nil)
-                    completionHandler(nil, apiErrorResponse)
-                }
+                
         }
     }
 }
