@@ -18,7 +18,7 @@ class AuthorizationService: BaseService {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         manager.request(request)
             .validate()
             .responseJSON { response in
