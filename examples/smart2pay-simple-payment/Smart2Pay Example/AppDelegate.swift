@@ -10,7 +10,7 @@ import UIKit
 import Smart2Pay
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -41,17 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    private func application(application: UIApplication, handleOpenURL url: URL) -> Bool {
-        return WXApi.handleOpen(url as URL, delegate: self as WXApiDelegate)
-    }
-    
-    private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return WXApi.handleOpen(url as URL, delegate: self as WXApiDelegate)
-    }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        PaymentManager.shared.processOrder(url: url, options: options)
+        //PaymentManager.shared.processOrder(url: url, options: options)
         return true
     }
 }
