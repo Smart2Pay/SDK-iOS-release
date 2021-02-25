@@ -85,7 +85,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
     
     @objc private func setupCreditCard() {
         
-        creditCard = CreditCard(holderName: "John Doe", number: "4111111111111111", expirationMonth: 2, expirationYear: 2019, securityCode: "321")
+        creditCard = CreditCard(holderName: "John Doe", number: "4111111111111111", expirationMonth: 2, expirationYear: 2030, securityCode: "321")
         creditCardView.cardHolderString = creditCard!.holderName
         creditCardView.paymentCardTextFieldDidChange(cardNumber: creditCard!.number, expirationYear: creditCard!.expirationYear, expirationMonth: creditCard!.expirationMonth, cvc: creditCard!.securityCode)
         
