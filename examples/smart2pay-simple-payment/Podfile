@@ -1,9 +1,8 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '13.0'
 
 target 'Smart2Pay Example' do
   use_frameworks!
   inhibit_all_warnings!
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
+  pod 'Smart2Pay', :path => '../../'
 end

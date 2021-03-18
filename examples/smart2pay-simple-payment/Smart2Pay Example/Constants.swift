@@ -13,4 +13,5 @@ import Foundation
 
 let apiURL = "https://s2pmerchantserver.azurewebsites.net"
 let apiToken = "Basic UzJwTWVyY2hhbnRTZXJ2ZXI6UzJwTWVyY2hhbnRTZXJ2ZXJQYXNzd29yZA=="
+//let apiToken = "Basic rzJwTWVyY2hhbnRTZXJ2ZXI6UzJwTWVyY2hhbnRTZXJ2ZXJQYXNzd29yZA=="
 let urlScheme = "com.smart2pay.example"

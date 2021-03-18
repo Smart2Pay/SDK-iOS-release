@@ -1,28 +1,27 @@
 PODS:
-  - Alamofire (5.4.0)
-  - AlipaySDK-iOS (15.7.9)
+  - Alamofire (5.4.1)
+  - Smart2Pay (0.1.0):
+    - Alamofire
+    - SwiftyJSON
   - SwiftyJSON (5.0.0)
-  - WechatOpenSDK (1.8.7.1)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlipaySDK-iOS
-  - SwiftyJSON
-  - WechatOpenSDK
+  - Smart2Pay (from `../../`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AlipaySDK-iOS
     - SwiftyJSON
-    - WechatOpenSDK
+
+EXTERNAL SOURCES:
+  Smart2Pay:
+    :path: "../../"
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  AlipaySDK-iOS: 94ff4c0e17c5e7d126b8207596d5033006534c25
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Smart2Pay: 98ff76d2682a7db785b82206df39e8d64816884d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
 
-PODFILE CHECKSUM: 94999dc69c5d0095d366787a6c545d2e29cf827a
+PODFILE CHECKSUM: 0d0733dabeff08e99bf96f553081504d32838542
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.3

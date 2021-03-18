@@ -32,8 +32,6 @@
 		637FBF9421CBD4A9006E35FE /* AKMaskFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FBF8721CBD4A9006E35FE /* AKMaskFieldStatus.swift */; };
 		637FBF9521CBD4A9006E35FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637FBF8921CBD4A9006E35FE /* Images.xcassets */; };
 		639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240F121C90E9600B4E608 /* AuthorizationService.swift */; };
-		DC225715257BA53E008D1247 /* Smart2Pay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC225714257BA53E008D1247 /* Smart2Pay.framework */; };
-		DC22571B257BA5BE008D1247 /* Smart2Pay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC225714257BA53E008D1247 /* Smart2Pay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC22571B257BA5BE008D1247 /* Smart2Pay.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +79,6 @@
 		637FBF8921CBD4A9006E35FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		639240F121C90E9600B4E608 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.release.xcconfig"; sourceTree = "<group>"; };
-		DC225714257BA53E008D1247 /* Smart2Pay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Smart2Pay.framework; path = Frameworks/Smart2Pay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC225715257BA53E008D1247 /* Smart2Pay.framework in Frameworks */,
 				E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +104,6 @@
 		6338904B218CAA9A00EE1309 = {
 			isa = PBXGroup;
 			children = (
-				DC225714257BA53E008D1247 /* Smart2Pay.framework */,
 				637FBF7B21CBD4A9006E35FE /* CreditCardForm */,
 				63389056218CAA9A00EE1309 /* Smart2Pay Example */,
 				63389055218CAA9A00EE1309 /* Products */,
@@ -285,8 +279,6 @@
 			);
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -496,7 +488,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55DCEACB24D57C0BB2121017 /* Pods-Smart2Pay Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL7YCKA3M9;
@@ -524,7 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL7YCKA3M9;
