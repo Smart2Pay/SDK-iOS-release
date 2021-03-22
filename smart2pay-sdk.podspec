@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name                        = "Smart2Pay"
+  s.name                        = "smart2pay-sdk"
   s.version                     = '0.1.0'
   s.summary                     = "Mobile SDK to connect to Smart2Pay – a Nuvei Company – payment platform"
   s.description                 = <<-DESC

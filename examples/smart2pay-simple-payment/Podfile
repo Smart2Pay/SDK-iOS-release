@@ -4,5 +4,5 @@ platform :ios, '13.0'
 target 'Smart2Pay Example' do
   use_frameworks!
   inhibit_all_warnings!
-  pod 'Smart2Pay', :path => '../../'
+  pod 'smart2pay-sdk', :path => '../../'
 end

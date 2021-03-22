@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (5.4.1)
-  - Smart2Pay (0.1.0):
+  - smart2pay-sdk (0.1.0):
     - Alamofire
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Smart2Pay (from `../../`)
+  - smart2pay-sdk (from `../../`)
 
 SPEC REPOS:
   trunk:
@@ -14,14 +14,14 @@ SPEC REPOS:
     - SwiftyJSON
 
 EXTERNAL SOURCES:
-  Smart2Pay:
+  smart2pay-sdk:
     :path: "../../"
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  Smart2Pay: 98ff76d2682a7db785b82206df39e8d64816884d
+  smart2pay-sdk: 62c8244829a3710b1b842770bb780cb7d73c7c9b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 0d0733dabeff08e99bf96f553081504d32838542
+PODFILE CHECKSUM: dce2d950a8ed50953e38eaa12190fa2c444a9896
 
 COCOAPODS: 1.9.3

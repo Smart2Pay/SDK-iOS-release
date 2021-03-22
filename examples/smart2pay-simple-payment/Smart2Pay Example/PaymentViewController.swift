@@ -98,8 +98,8 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
                 print("Apikey: \(apiKey ?? "nil")" )
                 self.paymentManager.authenticateCreditCard(self.creditCard!.getParameters(), apiKey: apiKey!, debug: true
                     , completionHandler: { (creditCardToken, error) in
-                        if error != nil {
-                            print(error!)
+                        if let error = error {
+                            print("Error code: \(error.statusCode ?? -1), message: \(error.message ?? "")")
                         } else {
                             print("Credit Card Token: \(creditCardToken!)")
                         }
