@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
-  - smart2pay-sdk (0.1.0):
+  - smart2pay-sdk (1.0.0):
     - Alamofire
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  smart2pay-sdk: 62c8244829a3710b1b842770bb780cb7d73c7c9b
+  smart2pay-sdk: 461f099f86e20df661a3a80942cd3e630caf44e9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: dce2d950a8ed50953e38eaa12190fa2c444a9896

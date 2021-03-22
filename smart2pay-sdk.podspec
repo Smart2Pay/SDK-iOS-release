@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                        = "smart2pay-sdk"
-  s.version                     = '0.1.0'
+  s.version                     = '1.0.0'
   s.summary                     = "Mobile SDK to connect to Smart2Pay – a Nuvei Company – payment platform"
   s.description                 = <<-DESC
                                    By using Smart2Pay SDK for mobile, you can quickly integrate more payment options directly in your mobile application. Our SDK provides one unique interface to Cards, Alipay and WeChat in-app payments.
