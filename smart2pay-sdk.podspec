@@ -8,15 +8,19 @@ Pod::Spec.new do |s|
   s.homepage                    = "https://docs.smart2pay.com/category/smart2pay-mobile-sdk"
   s.license                     = { :type => 'Commercial', :file => 'LICENSE.md' }
   s.author                      = "Smart2Pay – a Nuvei Company"
-  s.source                      = { :git => "git@github.com:Smart2Pay/SDK-iOS-release.git", :tag => s.version.to_s }
+  s.source                      = { :git => "https://github.com/Smart2Pay/SDK-iOS-release.git", :tag => s.version.to_s }
+  s.module_name                 = 'Smart2Pay'
   s.platform                    = :ios, '13.0'
   s.requires_arc                = true
-  s.ios.deployment_target       = "13.0"
-  s.swift_version               = '5.1'
+  s.ios.deployment_target       = '12.1'
+  s.swift_version               = ['5.0', '5.1', '5.2']
   s.libraries                   = 'c++','sqlite3.0','z'
   s.vendored_frameworks         = "Smart2Pay.framework"
   s.frameworks                  = 'CFNetwork','CoreMotion','CoreTelephony','Security','SystemConfiguration','UIKit'
 
   s.dependency 'SwiftyJSON'
   s.dependency 'Alamofire'
+
+  s.xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
