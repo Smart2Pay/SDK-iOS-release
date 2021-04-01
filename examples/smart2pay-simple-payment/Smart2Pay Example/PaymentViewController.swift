@@ -51,7 +51,6 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
     }
     
     // MARK - Requests
-    
     private func placeOrder(order: Order) {
         var orderParameters: [String: String] = [:]
         orderParameters["amount"] = "\(order.amount)"
@@ -60,7 +59,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         
         PaymentsService.postPayments(orderParameters) { (json, error) in
             if error == nil {
-                print(json?.stringValue ?? "json empty")
+                debugPrint(#function, json?.stringValue ?? "json empty")
                 let payment = Payment(id: json!["id"].intValue)
                 payment.currency = order.currency
                 payment.amount = order.amount
@@ -82,36 +81,38 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
     }
     
     // Credit Card
-    
     @objc private func setupCreditCard() {
-        
         creditCard = CreditCard(holderName: "John Doe", number: "4111111111111111", expirationMonth: 2, expirationYear: 2030, securityCode: "321")
         creditCardView.cardHolderString = creditCard!.holderName
-        creditCardView.paymentCardTextFieldDidChange(cardNumber: creditCard!.number, expirationYear: creditCard!.expirationYear, expirationMonth: creditCard!.expirationMonth, cvc: creditCard!.securityCode)
-        
+        creditCardView.paymentCardTextFieldDidChange(
+            cardNumber: creditCard!.number,
+            expirationYear: creditCard!.expirationYear,
+            expirationMonth: creditCard!.expirationMonth,
+            cvc: creditCard!.securityCode
+        )
     }
     
     private func processCreditCard() {
         // Get the API key first
-        AuthorizationService.postAuthorizationApiKey(){ (apiKey, error) in
-            if error == nil {
-                print("Apikey: \(apiKey ?? "nil")" )
-                self.paymentManager.authenticateCreditCard(self.creditCard!.getParameters(), apiKey: apiKey!, debug: true
-                    , completionHandler: { (creditCardToken, error) in
-                        if let error = error {
-                            print("Error code: \(error.statusCode ?? -1), message: \(error.message ?? "")")
-                        } else {
-                            print("Credit Card Token: \(creditCardToken!)")
-                        }
+        AuthorizationService.postAuthorizationApiKey() { [weak self] (apiKey, error) in
+            if let error = error {
+                print(#function, "error = \(error)")
+            } else if let apiKey = apiKey, let creditCard = self?.creditCard {
+                print(#function, "apiKey: \(apiKey)")
+                self?.paymentManager.authenticateCreditCard(creditCard.getParameters(), apiKey: apiKey, debug: true, completionHandler: { (creditCardToken, error) in
+                    if let error = error {
+                        print(#function, "Error code: \(error.statusCode ?? -1), message: \(error.message ?? "")")
+                    } else {
+                        print(#function, "Credit Card Token: \(creditCardToken!)")
+                    }
                 })
             } else {
-                print(error!)
+                print(#function, "apiKey is nil")
             }
         }
     }
     
     // MARK - PaymentManagerDelegate
-    
     func onPaymentSuccess(_ payment: Payment, _ body: [String: Any]) {
         print("onPaymentSuccess :)")
         verify(payment: payment, body: body)

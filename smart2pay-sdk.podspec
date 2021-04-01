@@ -18,9 +18,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks         = "Smart2Pay.framework"
   s.frameworks                  = 'CFNetwork','CoreMotion','CoreTelephony','Security','SystemConfiguration','UIKit'
 
-  s.dependency 'SwiftyJSON'
-  s.dependency 'Alamofire'
-
   s.xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
