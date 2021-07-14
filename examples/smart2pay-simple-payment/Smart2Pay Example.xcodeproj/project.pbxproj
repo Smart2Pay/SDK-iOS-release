@@ -34,6 +34,7 @@
 		639240F221C90E9600B4E608 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639240F121C90E9600B4E608 /* AuthorizationService.swift */; };
 		E84058DECD2E8387F3E8E6C7 /* Pods_Smart2Pay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5238400ECC5956B5806C37 /* Pods_Smart2Pay_Example.framework */; };
 		F578439A269EFC7200FA8A8C /* Auth3dViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5784399269EFC7200FA8A8C /* Auth3dViewController.swift */; };
+		F578439F269F3EAE00FA8A8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F578439E269F3EAE00FA8A8C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		639240F121C90E9600B4E608 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		901A101F4827CB62B2343951 /* Pods-Smart2Pay Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart2Pay Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart2Pay Example/Pods-Smart2Pay Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5784399269EFC7200FA8A8C /* Auth3dViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth3dViewController.swift; sourceTree = "<group>"; };
+		F578439E269F3EAE00FA8A8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				6338905E218CAA9C00EE1309 /* Assets.xcassets */,
 				63389060218CAA9C00EE1309 /* LaunchScreen.storyboard */,
 				63389063218CAA9C00EE1309 /* Info.plist */,
+				F578439E269F3EAE00FA8A8C /* GoogleService-Info.plist */,
 			);
 			path = "Smart2Pay Example";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				63389052218CAA9A00EE1309 /* Resources */,
 				00D6AAF4E18D9BDFC457B579 /* [CP] Embed Pods Frameworks */,
 				63B78E0D21921ECF00FDE1CF /* Embed Frameworks */,
+				F578439D269F3CB300FA8A8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F578439F269F3EAE00FA8A8C /* GoogleService-Info.plist in Resources */,
 				63389062218CAA9C00EE1309 /* LaunchScreen.storyboard in Resources */,
 				637FBF9521CBD4A9006E35FE /* Images.xcassets in Resources */,
 				6338905F218CAA9C00EE1309 /* Assets.xcassets in Resources */,
@@ -313,6 +318,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F578439D269F3CB300FA8A8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -497,6 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76EG5CUMY9;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
@@ -510,7 +535,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.iossdk.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.iossdk.tester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,6 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76EG5CUMY9;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
@@ -539,7 +565,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.iossdk.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smart2pay.iossdk.tester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
