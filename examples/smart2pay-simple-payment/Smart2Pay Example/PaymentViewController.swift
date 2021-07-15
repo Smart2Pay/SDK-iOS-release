@@ -48,7 +48,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         }
     }
     
-    @IBAction func fill() {
+    @IBAction func fill(sender: UIButton) {
         
         let actionSheet = UIAlertController(title: "Flow", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Force Web Challenge", style: .default, handler: { [weak self] (_) in
@@ -120,6 +120,12 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
             }
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            actionSheet.modalPresentationStyle = .popover
+            actionSheet.popoverPresentationController?.sourceView = sender
+        }
+        
         present(actionSheet, animated: true)
     }
     
