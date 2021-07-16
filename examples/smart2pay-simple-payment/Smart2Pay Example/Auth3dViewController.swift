@@ -38,8 +38,6 @@ class Auth3dViewController: UIViewController {
     }
     
     @IBAction func authenticate3d() {
-        self.resultTextView.text = "Processing..."
-
         guard
             let creditCardToken = creditCardTokenTextField.text,
             let cvv = cvvTextField.text,
@@ -48,15 +46,22 @@ class Auth3dViewController: UIViewController {
             let apiKey = apiKey
         else { return }
         
+        self.resultTextView.text = "Input:"
+            + "\n- creditCardToken: \(creditCardToken)"
+            + "\n- cvv: \(cvv)"
+            + "\n- amount: \(amount)"
+            + "\n- currency: \(currency)"
+            + "\n- apiKey: \(apiKey)"
+
         PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, creditCardSecurityCode: cvv, amount: amount, currency: currency, apiKey: apiKey, debug: true) { [weak self] (output, error) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 if let output = output {
-                    self.resultTextView.text = "\(output.printingDescriptiopn)"
+                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "\(output.printingDescriptiopn)"
                 } else if let error = error {
-                    self.resultTextView.text = "Error: \(error)"
+                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "Error: \(error)"
                 } else {
-                    self.resultTextView.text = "Unknown output returned"
+                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "No output returned"
                 }
             }
         }
