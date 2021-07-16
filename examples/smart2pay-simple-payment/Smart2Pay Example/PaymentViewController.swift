@@ -14,8 +14,9 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
     let paymentManager = PaymentManager.shared
     var creditCard: CreditCard? = nil
     
-    @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var currencyTextField: UITextField!
+    @IBOutlet weak var cvvTextField: UITextField!
     @IBOutlet weak var creditCardView: CreditCardFormView!
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var creditCardTokenTextField: UITextField!
@@ -53,6 +54,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         let actionSheet = UIAlertController(title: "Flow", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Force Web Challenge", style: .default, handler: { [weak self] (_) in
             self?.creditCardView.cardHolderString = "CL-BRW1"
+            self?.cvvTextField.text = "123"
             self?.creditCard?.holderName = "CL-BRW1"
             self?.creditCard?.number = "5111426646345761"
             self?.creditCard?.securityCode = "123"
@@ -70,6 +72,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         }))
 //        actionSheet.addAction(UIAlertAction(title: "Challenge", style: .default, handler: { [weak self] (_) in
 //            self?.creditCardView.cardHolderString = "CL-APP1"
+//            self?.cvvTextField.text = "123"
 //            self?.creditCard?.holderName = "CL-APP1"
 //            self?.creditCard?.number = "5111426646345761"
 //            self?.creditCard?.securityCode = "123"
@@ -87,6 +90,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
 //        }))
         actionSheet.addAction(UIAlertAction(title: "Frictionless", style: .default, handler: { [weak self] (_) in
             self?.creditCardView.cardHolderString = "FL-APP1"
+            self?.cvvTextField.text = "123"
             self?.creditCard?.holderName = "FL-APP1"
             self?.creditCard?.number = "5111426646345761"
             self?.creditCard?.securityCode = "123"
@@ -104,6 +108,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         }))
         actionSheet.addAction(UIAlertAction(title: "3Dv1", style: .default, handler: { [weak self] (_) in
             self?.creditCardView.cardHolderString = "CL-APP1"
+            self?.cvvTextField.text = "123"
             self?.creditCard?.holderName = "CL-APP1"
             self?.creditCard?.number = "4407106439671112"
             self?.creditCard?.securityCode = "123"
@@ -147,6 +152,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
             destination.creditCardToken = creditCardTokenTextField.text
             destination.amount = amountTextField.text
             destination.currency = currencyTextField.text
+            destination.cvv = cvvTextField.text
             destination.apiKey = apiKeyTextField.text
         }
     }
@@ -240,6 +246,12 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
 extension PaymentViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newText = ((textField.text ?? "") as NSString).replacingCharacters(in: range, with: string)
+        
+        if textField == cvvTextField {
+            creditCard?.securityCode = newText
+            return true
+        }
+        
         switch textField {
         case apiKeyTextField:
             setupAuth3dButtonAvailablility(apiKey: newText, ccToken: creditCardTokenTextField.text)

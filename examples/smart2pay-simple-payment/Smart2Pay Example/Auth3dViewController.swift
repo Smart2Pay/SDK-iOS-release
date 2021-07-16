@@ -14,13 +14,17 @@ class Auth3dViewController: UIViewController {
     var creditCardToken: String!
     var amount: String!
     var currency: String!
+    var cvv: String!
     var apiKey: String!
 
     @IBOutlet weak var creditCardTokenTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var currencyTextField: UITextField!
+    @IBOutlet weak var cvvTextField: UITextField!
     @IBOutlet weak var merchantIdTextField: UITextField!
     @IBOutlet weak var merchantSiteIdTextField: UITextField!
+    
+    @IBOutlet weak var auth3dButton: UIButton!
     
     @IBOutlet weak var resultTextView: UITextView!
 
@@ -30,6 +34,7 @@ class Auth3dViewController: UIViewController {
         creditCardTokenTextField.text = creditCardToken
         amountTextField.text = amount
         currencyTextField.text = currency
+        cvvTextField.text = cvv
     }
     
     @IBAction func authenticate3d() {
@@ -37,10 +42,13 @@ class Auth3dViewController: UIViewController {
 
         guard
             let creditCardToken = creditCardTokenTextField.text,
+            let cvv = cvvTextField.text,
             let amount = amountTextField.text,
-            let currency = currencyTextField.text
+            let currency = currencyTextField.text,
+            let apiKey = apiKey
         else { return }
-        PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, amount: amount, currency: currency, apiKey: apiKey, debug: true) { [weak self] (output, error) in
+        
+        PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, creditCardSecurityCode: cvv, amount: amount, currency: currency, apiKey: apiKey, debug: true) { [weak self] (output, error) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 if let output = output {
