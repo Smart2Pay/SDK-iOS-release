@@ -207,7 +207,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
             } else if let apiKey = apiKey, let creditCard = self?.creditCard {
                 print(#function, "apiKey: \(apiKey)")
                 self?.apiKeyTextField.text = apiKey
-                self?.paymentManager.authenticateCreditCard(creditCard.getParameters(), apiKey: apiKey, debug: true, completionHandler: { (creditCardToken, error) in
+                self?.paymentManager.authenticateCreditCard(creditCard.getParameters(), apiKey: apiKey, completionHandler: { (creditCardToken, error) in
                     DispatchQueue.main.async {
                         self?.creditCardTokenTextField.text = creditCardToken
                         self?.setupAuth3dButtonAvailablility(apiKey: apiKey, ccToken: creditCardToken)

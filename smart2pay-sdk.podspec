@@ -15,14 +15,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target       = '12.1'
   s.swift_version               = ['5.0', '5.1', '5.2', '5.3', '5.4']
   s.libraries                   = 'c++','sqlite3.0','z'
-  s.vendored_frameworks         = "Smart2Pay.framework"
+  s.vendored_frameworks         = "Smart2Pay.xcframework"
   s.frameworks                  = 'CFNetwork','CoreMotion','CoreTelephony','Security','SystemConfiguration','UIKit'
 
   s.xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
-  s.dependency 'Alamofire'
-  s.dependency 'SwiftyJSON'
+  s.dependency 'Alamofire', '~> 4.4'
+  s.dependency 'SwiftyJSON', '~> 4.2'
   s.dependency 'CryptoSwift'
   s.dependency 'JOSESwift'
 end

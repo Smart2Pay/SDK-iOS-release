@@ -102,19 +102,17 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
   - smart2pay-sdk (2.0):
-    - Alamofire
+    - Alamofire (~> 4.4)
     - CryptoSwift
     - JOSESwift
-    - SwiftyJSON
+    - SwiftyJSON (~> 4.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
   - Firebase/Analytics
   - Firebase/AppDistribution
   - Firebase/Crashlytics
   - smart2pay-sdk (from `../../`)
-  - SwiftyJSON (~> 4.2)
 
 SPEC REPOS:
   trunk:
@@ -155,9 +153,9 @@ SPEC CHECKSUMS:
   JOSESwift: 7ff178bb9173ff42c6e990929a9f2fa702a34f69
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  smart2pay-sdk: d52a05ad075417cf3aeeb3c82caf0744fa9bb921
+  smart2pay-sdk: 17e89d7071032c2a7b6dab95a946d5aac88832ed
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: ff13920eaf85015fc90bde56d59feba96177669e
+PODFILE CHECKSUM: b3e3fd82928dc88b7a79ae2e3bb36fc135b3e077
 
 COCOAPODS: 1.10.1

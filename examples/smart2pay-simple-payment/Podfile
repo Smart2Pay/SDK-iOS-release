@@ -5,8 +5,6 @@ target 'Smart2Pay Example' do
   use_frameworks!
   inhibit_all_warnings!
   pod 'smart2pay-sdk', :path => '../../'
-  pod 'Alamofire', '~> 4.4'
-  pod 'SwiftyJSON', '~> 4.2'
   
   pod 'Firebase/AppDistribution'
   pod 'Firebase/Crashlytics'

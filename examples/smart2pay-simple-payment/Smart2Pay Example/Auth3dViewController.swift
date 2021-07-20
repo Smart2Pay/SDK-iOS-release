@@ -16,6 +16,17 @@ class Auth3dViewController: UIViewController {
     var currency: String!
     var cvv: String!
     var apiKey: String!
+    
+    private var output: Smart2Pay.S2PAuth3dOutput? {
+        didSet {
+            guard let output = output else {
+                setButton(payButton, enabled: false)
+                return
+            }
+            
+            setButton(payButton, enabled: output.result == .approved)
+        }
+    }
 
     @IBOutlet weak var creditCardTokenTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
@@ -25,7 +36,8 @@ class Auth3dViewController: UIViewController {
     @IBOutlet weak var merchantSiteIdTextField: UITextField!
     
     @IBOutlet weak var auth3dButton: UIButton!
-    
+    @IBOutlet weak var payButton: UIButton!
+
     @IBOutlet weak var resultTextView: UITextView!
 
     override func viewDidLoad() {
@@ -35,6 +47,8 @@ class Auth3dViewController: UIViewController {
         amountTextField.text = amount
         currencyTextField.text = currency
         cvvTextField.text = cvv
+        
+        setButton(payButton, enabled: false)
     }
     
     @IBAction func authenticate3d() {
@@ -46,6 +60,7 @@ class Auth3dViewController: UIViewController {
             let apiKey = apiKey
         else { return }
         
+        setButton(auth3dButton, enabled: false)
         self.resultTextView.text = "Input:"
             + "\n- creditCardToken: \(creditCardToken)"
             + "\n- cvv: \(cvv)"
@@ -53,9 +68,11 @@ class Auth3dViewController: UIViewController {
             + "\n- currency: \(currency)"
             + "\n- apiKey: \(apiKey)"
 
-        PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, creditCardSecurityCode: cvv, amount: amount, currency: currency, apiKey: apiKey, debug: true) { [weak self] (output, error) in
+        PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, creditCardSecurityCode: cvv, amount: amount, currency: currency, apiKey: apiKey) { [weak self] (output, error) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
+                self.setButton(self.auth3dButton, enabled: true)
+                self.output = output
                 if let output = output {
                     self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "\(output.printingDescriptiopn)"
                 } else if let error = error {
@@ -65,6 +82,19 @@ class Auth3dViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ThreeDPaymentViewController {
+            vc.amount = amount
+            vc.currency = currency
+            vc.auth3dOutput = output
+        }
+    }
+    
+    private func setButton(_ button: UIButton, enabled: Bool) {
+        button.isEnabled = enabled
+        button.alpha = enabled ? 1.0 : 0.5
     }
 }
 

@@ -72,4 +72,53 @@ class PaymentsService: BaseService {
             print(error)
         }
     }
+    
+    static func post3dPayment(
+        amount: String,
+        currency: String,
+        transactionStatus: String,
+        eci: String,
+        authenticationValue: String,
+        dsTransId: String,
+        messageVersion: String,
+        completionHandler: @escaping (_ json: JSON?, _ error: ApiError?) -> Void
+    ) {
+        let url = "\(apiURL)/api/payments/3dsv2ExternalMpi"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameters: [String: Any] = [
+            "Amount": amount,
+            "Currency": currency,
+            "MethodId": "6",
+            "3DSecureData": [
+                "TransactionStatus": transactionStatus,
+                "ECI": eci,
+                "AuthenticationValue": authenticationValue,
+                "DSTransId": dsTransId,
+                "MessageVersion": messageVersion,
+                "ThreeDSecureAuthenticationType1": "F",
+            ]
+        ]
+
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            manager.request(request)
+                .validate()
+                .responseJSON { response in
+                    
+                    switch response.result {
+                        case .success(let value):
+                            let json = JSON(value)
+                            completionHandler(json, nil)
+                        case .failure(let error):
+                            let apiErrorResponse = apiErrorFor(response, error: error as NSError, params: nil)
+                            completionHandler(nil, apiErrorResponse)
+                        }
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
