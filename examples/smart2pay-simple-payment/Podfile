@@ -1,11 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/SafeChargeInternational/Pods.git'
+
 target 'Smart2Pay Example' do
   use_frameworks!
   inhibit_all_warnings!
-  pod 'smart2pay-sdk', :path => '../../'
-  
+  pod 'smart2pay-sdk', '~> 2.0'
+#  pod 'smart2pay-sdk', :path => '../../'
+
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON', '~> 4.2'
 
