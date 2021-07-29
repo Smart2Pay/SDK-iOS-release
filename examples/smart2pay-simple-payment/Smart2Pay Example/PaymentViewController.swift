@@ -11,7 +11,6 @@ import Smart2Pay
 import SwiftyJSON
 
 class PaymentViewController: UIViewController, PaymentManagerDelegate {
-    let paymentManager = PaymentManager.shared
     var creditCard: CreditCard? = nil
     
     @IBOutlet weak var amountTextField: UITextField!
@@ -21,13 +20,14 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var creditCardTokenTextField: UITextField!
     @IBOutlet weak var authenticate3dButton: UIButton!
-    
+    @IBOutlet weak var logTextView: UITextView!
+
     private var forceWebChallenge = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        paymentManager.set(urlScheme: urlScheme)
+        PaymentManager.shared.set(urlScheme: urlScheme)
         
         self.perform(#selector(setupCreditCard), with: nil, afterDelay: 0.1)
         
@@ -56,7 +56,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
             self?.creditCardView.cardHolderString = "CL-BRW1"
             self?.cvvTextField.text = "123"
             self?.creditCard?.holderName = "CL-BRW1"
-            self?.creditCard?.number = "5111426646345761"
+            self?.creditCard?.number = "2221008123677736"
             self?.creditCard?.securityCode = "123"
             self?.creditCard?.expirationYear = 2021
             self?.creditCard?.expirationMonth = 12
@@ -174,7 +174,7 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
                 payment.instructions = json!["instructions"].stringValue
                 payment.delegate = self
                 
-                self.paymentManager.pay(payment: payment)
+                PaymentManager.shared.pay(payment: payment)
             }
         }
     }
@@ -199,25 +199,66 @@ class PaymentViewController: UIViewController, PaymentManagerDelegate {
         )
     }
     
+    private func updateCreditCardFromView() {
+        if let cardNumber = creditCardView.cardNumberStringValue {
+            creditCard?.number = cardNumber.replacingOccurrences(of: " ", with: "")
+        }
+        if let cardHolder = creditCardView.cardHolderStringValue {
+            creditCard?.holderName = cardHolder
+        }
+        if let expiration = creditCardView.cardExpirationStringValue?.components(separatedBy: "/"),
+           expiration.count == 2,
+           let month = UInt(expiration[0]),
+           var year = UInt(expiration[1])
+        {
+            if year < 100 {
+                year += 2000
+            }
+            creditCard?.expirationMonth = month
+            creditCard?.expirationYear = year
+        }
+    }
+    
     private func processCreditCard() {
+        updateCreditCardFromView()
+        
+        if let creditCard = creditCard {
+            logTextView.text = "Request:\n\(creditCard.getParameters())"
+        }
+        
         // Get the API key first
         AuthorizationService.postAuthorizationApiKey() { [weak self] (apiKey, error) in
             if let error = error {
                 print(#function, "error = \(error)")
+                DispatchQueue.main.async {
+                    self?.logTextView.text = "\(self?.logTextView.text ?? "")\n\napiKey error:\n\(error)"
+                }
             } else if let apiKey = apiKey, let creditCard = self?.creditCard {
                 print(#function, "apiKey: \(apiKey)")
-                self?.apiKeyTextField.text = apiKey
-                self?.paymentManager.authenticateCreditCard(creditCard.getParameters(), apiKey: apiKey, completionHandler: { (creditCardToken, error) in
+                DispatchQueue.main.async {
+                    self?.apiKeyTextField.text = apiKey
+                    self?.logTextView.text = "\(self?.logTextView.text ?? "")\n\napiKey:\n\(apiKey)"
+                }
+                PaymentManager.shared.authenticateCreditCard(creditCard.getParameters(), apiKey: apiKey) { (creditCardToken, error) in
+                    if let creditCardToken = creditCardToken {
+                        print("creditCardToken: \(creditCardToken)")
+                    } else if let error = error {
+                        print("error: \(error)")
+                    }
                     DispatchQueue.main.async {
                         self?.creditCardTokenTextField.text = creditCardToken
                         self?.setupAuth3dButtonAvailablility(apiKey: apiKey, ccToken: creditCardToken)
+                        if let creditCardToken = creditCardToken {
+                            self?.logTextView.text = "\(self?.logTextView.text ?? "")\n\ncreditCardToken:\n\(creditCardToken)"
+                        } else if let error = error {
+                            print(#function, "Error code: \(error.statusCode ), message: \(error.message ?? "")")
+                            self?.logTextView.text = "\(self?.logTextView.text ?? "")\n\ncreditCardToken error:\n\(error)"
+                        } else {
+                            print(#function, "Credit Card Token: \(creditCardToken!)")
+                            self?.logTextView.text = "\(self?.logTextView.text ?? "")\n\ncreditCardToken error:\n(Unknown error)"
+                        }
                     }
-                    if let error = error {
-                        print(#function, "Error code: \(error.statusCode ), message: \(error.message ?? "")")
-                    } else {
-                        print(#function, "Credit Card Token: \(creditCardToken!)")
-                    }
-                })
+                }
             } else {
                 print(#function, "apiKey is nil")
             }

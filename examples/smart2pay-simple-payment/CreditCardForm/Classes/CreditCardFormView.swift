@@ -115,6 +115,24 @@ public class CreditCardFormView : UIView {
         }
     }
     
+    public var cardNumberStringValue: String? {
+        get {
+            return cardNumber.text
+        }
+    }
+    
+    public var cardHolderStringValue: String? {
+        get {
+            return cardHolder.text
+        }
+    }
+    
+    public var cardExpirationStringValue: String? {
+        get {
+            return expireDate.text
+        }
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         createViews()
@@ -393,7 +411,7 @@ public class CreditCardFormView : UIView {
     public func paymentCardTextFieldDidChange(cardNumber: String? = "", expirationYear: UInt, expirationMonth: UInt, cvc: String? = "") {
         self.cardNumber.text = cardNumber
         
-        self.expireDate.text = NSString(format: "%02ld", expirationMonth) as String + "/" + (NSString(format: "%02ld", expirationYear) as String)
+        self.expireDate.text = NSString(format: "%02ld", expirationMonth) as String + "/" + (NSString(format: "%02ld", expirationYear % 100) as String)
         
         if expirationMonth == 0 {
             expireDate.text = "MM/YY"

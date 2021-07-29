@@ -13,6 +13,8 @@ class ThreeDPaymentViewController: UIViewController {
     
     var amount: String!
     var currency: String!
+    var cardSecurityCode: String!
+    var creditCardToken: String!
     var auth3dOutput: Smart2Pay.S2PAuth3dOutput!
 
     @IBOutlet weak var inputTextView: UITextView!
@@ -25,6 +27,8 @@ class ThreeDPaymentViewController: UIViewController {
             "Amount": amount!,
             "Currency": currency!,
             "MethodId": "6",
+            "CreditCardToken": creditCardToken!,
+            "SecurityCode": cardSecurityCode!,
             "3DSecureData": [
                 "TransactionStatus": auth3dOutput.result == .approved ? "Y" : "N",
                 "ECI": auth3dOutput.eci!,
@@ -41,6 +45,8 @@ class ThreeDPaymentViewController: UIViewController {
         guard
             let amount = amount,
             let currency = currency,
+            let creditCardToken = creditCardToken,
+            let cardSecurityCode = cardSecurityCode,
             auth3dOutput.result == .approved,
             let eci = auth3dOutput.eci,
             let authenticationValue = auth3dOutput.cavv,
@@ -53,6 +59,8 @@ class ThreeDPaymentViewController: UIViewController {
         PaymentsService.post3dPayment(
             amount: amount,
             currency: currency,
+            creditCardToken: creditCardToken,
+            securityCode: cardSecurityCode,
             transactionStatus: "Y",
             eci: eci,
             authenticationValue: authenticationValue,

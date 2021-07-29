@@ -76,6 +76,8 @@ class PaymentsService: BaseService {
     static func post3dPayment(
         amount: String,
         currency: String,
+        creditCardToken: String,
+        securityCode: String,
         transactionStatus: String,
         eci: String,
         authenticationValue: String,
@@ -91,6 +93,8 @@ class PaymentsService: BaseService {
         let parameters: [String: Any] = [
             "Amount": amount,
             "Currency": currency,
+            "CreditCardToken": creditCardToken,
+            "SecurityCode": securityCode,
             "MethodId": "6",
             "3DSecureData": [
                 "TransactionStatus": transactionStatus,

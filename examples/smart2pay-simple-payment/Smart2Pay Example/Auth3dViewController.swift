@@ -32,8 +32,6 @@ class Auth3dViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var cvvTextField: UITextField!
-    @IBOutlet weak var merchantIdTextField: UITextField!
-    @IBOutlet weak var merchantSiteIdTextField: UITextField!
     
     @IBOutlet weak var auth3dButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
@@ -68,18 +66,20 @@ class Auth3dViewController: UIViewController {
             + "\n- currency: \(currency)"
             + "\n- apiKey: \(apiKey)"
 
-        PaymentManager.shared.authenticate3d(viewController: self, creditCardToken: creditCardToken, creditCardSecurityCode: cvv, amount: amount, currency: currency, apiKey: apiKey) { [weak self] (output, error) in
+        PaymentManager.shared.authenticate3d(
+            viewController: self,
+            creditCardToken: creditCardToken,
+            creditCardSecurityCode: cvv,
+            amount: amount,
+            currency: currency,
+            apiKey: apiKey)
+        { [weak self] output in
+            debugPrint("Auth3d: \(output.result)")
             DispatchQueue.main.async {
                 guard let self = self else { return }
-                self.setButton(self.auth3dButton, enabled: true)
                 self.output = output
-                if let output = output {
-                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "\(output.printingDescriptiopn)"
-                } else if let error = error {
-                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "Error: \(error)"
-                } else {
-                    self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "No output returned"
-                }
+                self.setButton(self.auth3dButton, enabled: true)
+                self.resultTextView.text = self.resultTextView.text + "\n\n-----------------\n\n" + "\(output.printingDescriptiopn)"
             }
         }
     }
@@ -88,6 +88,8 @@ class Auth3dViewController: UIViewController {
         if let vc = segue.destination as? ThreeDPaymentViewController {
             vc.amount = amount
             vc.currency = currency
+            vc.cardSecurityCode = cvv
+            vc.creditCardToken = creditCardToken
             vc.auth3dOutput = output
         }
     }
@@ -119,7 +121,6 @@ extension S2PAuth3dOutput {
                 + "\nthreeDReason: \(self.threeDReason ?? "(nil)")"
                 + "\nchallengePreferenceReason: \(self.challengePreferenceReason ?? "(nil)")"
                 + "\nisLiabilityOnIssuer: \(self.isLiabilityOnIssuer?.description ?? "(nil)")"
-                + "\ncancelled: \(self.cancelled)"
                 + "\nchallengeCancelReasonId: \(self.challengeCancelReasonId ?? "(nil)")"
                 + "\nchallengeCancelReason: \(self.challengeCancelReason ?? "(nil)")"
                 + "\nerrorCode: \(self.errorCode?.description ?? "(nil)")"
