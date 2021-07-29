@@ -2,7 +2,6 @@
 // swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Smart2Pay
 import AdSupport
-import Alamofire
 import CommonCrypto
 import Compression
 import CoreLocation
@@ -11,7 +10,6 @@ import Foundation
 import JOSESwift
 import Security
 import Swift
-import SwiftyJSON
 import UIKit
 import WebKit
 @objc @_inheritsConvenienceInitializers public class ApiError : ObjectiveC.NSObject {
@@ -46,7 +44,7 @@ import WebKit
   @objc public func set(urlScheme: Swift.String)
   @objc public func pay(payment: Smart2Pay.Payment)
   @objc public func authenticateCreditCard(_ parameters: [Swift.String : Any], apiKey: Swift.String, completionHandler: @escaping (Swift.String?, Smart2Pay.ApiError?) -> Swift.Void)
-  @objc public func authenticate3d(viewController: UIKit.UIViewController, creditCardToken: Swift.String, creditCardSecurityCode: Swift.String, amount: Swift.String, currency: Swift.String, apiKey: Swift.String, completion: @escaping (Smart2Pay.S2PAuth3dOutput?, Smart2Pay.ApiError?) -> Swift.Void)
+  @objc public func authenticate3d(viewController: UIKit.UIViewController, creditCardToken: Swift.String, creditCardSecurityCode: Swift.String, amount: Swift.String, currency: Swift.String, apiKey: Swift.String, completion: @escaping (Smart2Pay.S2PAuth3dOutput) -> Swift.Void)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -164,7 +162,7 @@ public struct EcdhEsJwe : Smart2Pay.JSONWebEncryption {
 }
 @objc @_hasMissingDesignatedInitializers public class S2PAuth3dOutput : ObjectiveC.NSObject {
   public enum S2PAuth3dResult {
-    case approved, declined, redirect, error, other
+    case approved, declined, cancelled, error
     public static func == (a: Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult, b: Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
@@ -188,7 +186,6 @@ public struct EcdhEsJwe : Smart2Pay.JSONWebEncryption {
   final public let threeDReason: Swift.String?
   final public let challengePreferenceReason: Swift.String?
   final public let isLiabilityOnIssuer: Swift.Bool?
-  final public let cancelled: Swift.Bool
   final public let challengeCancelReasonId: Swift.String?
   final public let challengeCancelReason: Swift.String?
   final public let errorCode: Swift.Int?

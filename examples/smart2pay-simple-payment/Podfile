@@ -6,7 +6,18 @@ target 'Smart2Pay Example' do
   inhibit_all_warnings!
   pod 'smart2pay-sdk', :path => '../../'
   
+  pod 'Alamofire', '~> 4.4'
+  pod 'SwiftyJSON', '~> 4.2'
+
   pod 'Firebase/AppDistribution'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+    end
+  end
 end

@@ -21,8 +21,6 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
-  s.dependency 'Alamofire', '~> 4.4'
-  s.dependency 'SwiftyJSON', '~> 4.2'
-  s.dependency 'CryptoSwift'
-  s.dependency 'JOSESwift'
+  s.dependency 'CryptoSwift'#, '1.4.0'
+  s.dependency 'JOSESwift'#, '2.4.0'
 end
