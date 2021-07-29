@@ -15,18 +15,22 @@ class BaseService {
   static var cachedManager = BaseService.getCachedManager()
   static var urlCache = URLCache(memoryCapacity: 10 * 1024 * 1024, diskCapacity: 50 * 1024 * 1024, diskPath: nil)
 
-  static func getManager() -> Session {
+  //static func getManager() -> Session {
+  static func getManager() -> SessionManager {
     let configuration = defaultSessionConfiguration()
     configuration.urlCache = nil
     configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-    return Session(configuration: configuration)
+    //return Session(configuration: configuration)
+    return SessionManager(configuration: configuration)
   }
 
-  static func getCachedManager() -> Session {
+  //static func getCachedManager() -> Session {
+  static func getCachedManager() -> SessionManager {
     let configuration = defaultSessionConfiguration()
     configuration.urlCache = urlCache
     configuration.requestCachePolicy = .returnCacheDataElseLoad
-    return Session(configuration: configuration)
+//    return Session(configuration: configuration)
+    return SessionManager(configuration: configuration)
   }
 
   static func resetManagers() {
@@ -35,7 +39,8 @@ class BaseService {
   }
 
   private static func defaultSessionConfiguration() -> URLSessionConfiguration {
-    var defaultHeaders = Session.default.session.configuration.httpAdditionalHeaders ?? [:]
+    //var defaultHeaders = Session.default.session.configuration.httpAdditionalHeaders ?? [:]
+    var defaultHeaders = SessionManager.default.session.configuration.httpAdditionalHeaders ?? [:]
     defaultHeaders["Authorization"] = "\(apiToken)"
 
     let configuration = URLSessionConfiguration.default
@@ -46,7 +51,8 @@ class BaseService {
 
   // MARK - Error handling helpers
 
-  static func apiErrorFor(_ response: AFDataResponse<Any>, error: NSError, params: [String: AnyObject]?) -> ApiError {
+  //static func apiErrorFor(_ response: AFDataResponse<Any>, error: NSError, params: [String: AnyObject]?) -> ApiError {
+  static func apiErrorFor(_ response: DataResponse<Any>, error: NSError, params: [String: AnyObject]?) -> ApiError {
 //    LogInfo("BaseService: \(#function)")
     let apiError = ApiError(response: response, error: error, params: params)
     if apiError.message == nil {
@@ -65,3 +71,4 @@ class BaseService {
     return false
   }
 }
+//Basic MzAwMDc6ZUhzSkxodEw1ZDk0TGlJUHdYYkpFbUpVY0dmbDkyRXc3OXRKOXQ0ZEMwMG05UFhYOUE=

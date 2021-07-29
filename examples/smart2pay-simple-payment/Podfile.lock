@@ -1,16 +1,136 @@
 PODS:
-  - Alamofire (5.4.1)
-  - smart2pay-sdk (1.1.0)
-  - SwiftyJSON (5.0.0)
+  - Alamofire (4.9.1)
+  - CryptoSwift (1.4.1)
+  - Firebase/Analytics (8.3.0):
+    - Firebase/Core
+  - Firebase/AppDistribution (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAppDistribution (~> 8.3.0-beta)
+  - Firebase/Core (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 8.3.0)
+  - Firebase/CoreOnly (8.3.0):
+    - FirebaseCore (= 8.3.0)
+  - Firebase/Crashlytics (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 8.3.0)
+  - FirebaseAnalytics (8.3.0):
+    - FirebaseAnalytics/AdIdSupport (= 8.3.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleAppMeasurement (= 8.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAppDistribution (8.3.0-beta):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+  - FirebaseCore (8.3.0):
+    - FirebaseCoreDiagnostics (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+  - FirebaseCoreDiagnostics (8.3.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+    - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstallations (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - PromisesObjC (~> 1.2)
+  - GoogleAppMeasurement (8.3.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (8.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.1.0):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.5.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.5.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.5.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.5.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.5.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.5.0)"
+  - GoogleUtilities/Reachability (7.5.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.5.0):
+    - GoogleUtilities/Logger
+  - JOSESwift (2.4.0)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - PromisesObjC (1.2.12)
+  - smart2pay-sdk (2.0):
+    - CryptoSwift
+    - JOSESwift
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.4)
+  - Firebase/Analytics
+  - Firebase/AppDistribution
+  - Firebase/Crashlytics
   - smart2pay-sdk (from `../../`)
-  - SwiftyJSON
+  - SwiftyJSON (~> 4.2)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CryptoSwift
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAppDistribution
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
+    - FirebaseInstallations
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleUtilities
+    - JOSESwift
+    - nanopb
+    - PromisesObjC
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -18,10 +138,24 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  smart2pay-sdk: 48fc9291132cd1856b8538e65ac15a4d644dada9
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  CryptoSwift: 0bc800a7e6a24c4fc9ebeab97d44b0d5f73a78bd
+  Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
+  FirebaseAnalytics: 456f2c51599870a15ded4548d1f1f7b2cabf65a7
+  FirebaseAppDistribution: 773cd6f05b128da7e2f51434e4708801c7e06ea0
+  FirebaseCore: a6dba751680d7033b9d3831e1cfc95ead0605118
+  FirebaseCoreDiagnostics: 7e873baabcfaa9512f538554ae4fa0817aaafbdb
+  FirebaseCrashlytics: 3d83f2e8a47f476f47c82ff4536b169df6781271
+  FirebaseInstallations: b69db7680870dbac17bba7a51fc0b5c4b365baa7
+  GoogleAppMeasurement: de70802583dedceb0bca18172b345307e8f410b8
+  GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
+  GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
+  JOSESwift: 7ff178bb9173ff42c6e990929a9f2fa702a34f69
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  smart2pay-sdk: 3a42df499ef854f390afc20f10b0282bc5a8aeec
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 54fe3520f1e63b61c86bd6efd6845b0efe165005
+PODFILE CHECKSUM: e4c7262b1924d08d78de2e5a46777b7e8188e22c
 
 COCOAPODS: 1.10.1

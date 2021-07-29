@@ -1,0 +1,224 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Smart2Pay
+import AdSupport
+import CommonCrypto
+import Compression
+import CoreLocation
+import CryptoSwift
+import Foundation
+import JOSESwift
+import Security
+import Swift
+import UIKit
+import WebKit
+@objc @_inheritsConvenienceInitializers public class ApiError : ObjectiveC.NSObject {
+  public var nsError: Foundation.NSError
+  public var message: Swift.String?
+  public var statusCode: Swift.Int
+  public var params: [Swift.String : Swift.AnyObject]?
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol PaymentManagerDelegate {
+  @objc func onPaymentSuccess(_ payment: Smart2Pay.Payment, _ body: [Swift.String : Any])
+  @objc func onPaymentFailure(_ payment: Smart2Pay.Payment)
+}
+@_inheritsConvenienceInitializers @objc public class PaymentManager : ObjectiveC.NSObject {
+  @objc public enum Environment : Swift.Int {
+    case production, testing
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public static let shared: Smart2Pay.PaymentManager
+  public var payment: Smart2Pay.Payment? {
+    get
+  }
+  @objc public func setup(environment: Smart2Pay.PaymentManager.Environment = .production)
+  @objc public func set(urlScheme: Swift.String)
+  @objc public func pay(payment: Smart2Pay.Payment)
+  @objc public func authenticateCreditCard(_ parameters: [Swift.String : Any], apiKey: Swift.String, completionHandler: @escaping (Swift.String?, Smart2Pay.ApiError?) -> Swift.Void)
+  @objc public func authenticate3d(viewController: UIKit.UIViewController, creditCardToken: Swift.String, creditCardSecurityCode: Swift.String, amount: Swift.String, currency: Swift.String, apiKey: Swift.String, completion: @escaping (Smart2Pay.S2PAuth3dOutput) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct EcdhEsJweHeader : Smart2Pay.JSONWebEncryptionHeader {
+  public init(alg: Swift.String, enc: Swift.String)
+  public init(parameters: [Swift.String : Any]) throws
+  public init(jsonData: Foundation.Data) throws
+  public init(b64uData: Foundation.Data) throws
+  public init(cloneFrom: Smart2Pay.JSONWebEncryptionHeader) throws
+  public func jsonSerializedData() -> Foundation.Data
+  public func allParameters() -> [Swift.String : Any]
+}
+extension EcdhEsJweHeader {
+  public var alg: Swift.String {
+    get
+    set
+  }
+  public var enc: Swift.String {
+    get
+    set
+  }
+  public var epk: JOSESwift.ECPublicKey? {
+    get
+    set
+  }
+  public var apu: Swift.String? {
+    get
+    set
+  }
+  public var apv: Swift.String? {
+    get
+    set
+  }
+}
+extension EcdhEsJweHeader {
+  public subscript(index: Swift.String) -> Any? {
+    get
+    set
+  }
+}
+@_inheritsConvenienceInitializers @objc public class Payment : ObjectiveC.NSObject {
+  public enum PaymentProvider : Swift.Int {
+    case NONE
+    case CREDITCARD
+    case ALIPAY
+    case WECHAT
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var id: Swift.Int
+  public var type: Smart2Pay.Payment.PaymentProvider
+  public var amount: Swift.Int
+  public var currency: Swift.String
+  public var instructions: Swift.String
+  public var delegate: Smart2Pay.PaymentManagerDelegate?
+  convenience public init(id: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ECCurveType {
+  public var bitLength: Swift.Int {
+    get
+  }
+}
+extension ECPrivateKey {
+  public func getPublic() -> JOSESwift.ECPublicKey
+  public func isCorrespondWith(_ key: JOSESwift.ECPublicKey) -> Swift.Bool
+}
+extension ECPrivateKey {
+  public func getPrivate() -> JOSESwift.ECPrivateKey
+}
+public func generateECKeyPair(curveType: JOSESwift.ECCurveType) throws -> JOSESwift.ECKeyPair
+extension JWK {
+  public func dictionarized() -> [Swift.String : Swift.String]
+  public init(dictionary: [Swift.String : Any]) throws
+}
+public protocol JWEEncryptor {
+  func encrypt(plaintext: Foundation.Data, key: JOSESwift.JWK, header: Smart2Pay.JSONWebEncryptionHeader, options: [Swift.String : Any]) throws -> (header: Smart2Pay.JSONWebEncryptionHeader, encryptedKey: Foundation.Data, iv: Foundation.Data, ciphertext: Foundation.Data, tag: Foundation.Data)
+  func decrypt(key: JOSESwift.JWK, header: Smart2Pay.JSONWebEncryptionHeader, encryptedKey: Foundation.Data, iv: Foundation.Data, ciphertext: Foundation.Data, tag: Foundation.Data, aad: Foundation.Data) throws -> Foundation.Data
+}
+@objc @_inheritsConvenienceInitializers public class JWEHelper : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CompletionEvent {
+  @objc deinit
+}
+public struct EcdhEsJwe : Smart2Pay.JSONWebEncryption {
+  public let header: Smart2Pay.JSONWebEncryptionHeader
+  public let encryptedKey: Foundation.Data
+  public let initializationVector: Foundation.Data
+  public var ciphertext: Foundation.Data
+  public var authenticationTag: Foundation.Data
+  public var additionalAuthenticatedData: Foundation.Data
+  public var compactSerializedString: Swift.String {
+    get
+  }
+  public var compactSerializedData: Foundation.Data {
+    get
+  }
+  public func decrypt(key: JOSESwift.JWK) throws -> Foundation.Data
+  public func decrypt(privKeyJwkJson: Foundation.Data) throws -> Foundation.Data
+  public func decrypt(privKeyJwkJson: Swift.String) throws -> Foundation.Data
+  public init(plaintext: Foundation.Data, pubKeyJwkJson: Foundation.Data, header: Smart2Pay.JSONWebEncryptionHeader, options: [Swift.String : Any] = [:]) throws
+  public init(plaintext: Foundation.Data, pubKeyJwkJson: Swift.String, header: Smart2Pay.JSONWebEncryptionHeader, options: [Swift.String : Any] = [:]) throws
+  public init(plaintext: Foundation.Data, pubKey: JOSESwift.ECPublicKey, header: Smart2Pay.JSONWebEncryptionHeader, options: [Swift.String : Any] = [:]) throws
+  public init(plaintext: Foundation.Data, pubKeyJwkJson: Foundation.Data, headerDic: [Swift.String : Any] = [:], options: [Swift.String : Any] = [:]) throws
+  public init(plaintext: Foundation.Data, pubKeyJwkJson: Swift.String, headerDic: [Swift.String : Any] = [:], options: [Swift.String : Any] = [:]) throws
+  public init(plaintext: Foundation.Data, pubKey: JOSESwift.ECPublicKey, headerDic: [Swift.String : Any] = [:], options: [Swift.String : Any] = [:]) throws
+  public init(compactSerializedString: Swift.String) throws
+  public init(compactSerializedData: Foundation.Data) throws
+}
+@objc @_hasMissingDesignatedInitializers public class S2PAuth3dOutput : ObjectiveC.NSObject {
+  public enum S2PAuth3dResult {
+    case approved, declined, cancelled, error
+    public static func == (a: Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult, b: Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  final public let result: Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult
+  final public let userPaymentOptionId: Swift.String?
+  final public let cavv: Swift.String?
+  final public let eci: Swift.String?
+  final public let xid: Swift.String?
+  final public let dsTransID: Swift.String?
+  final public let ccCardNumber: Swift.String?
+  final public let bin: Swift.String?
+  final public let last4Digits: Swift.String?
+  final public let ccExpMonth: Swift.String?
+  final public let ccExpYear: Swift.String?
+  final public let ccTempToken: Swift.String?
+  final public let transactionId: Swift.String?
+  final public let threeDReasonId: Swift.String?
+  final public let threeDReason: Swift.String?
+  final public let challengePreferenceReason: Swift.String?
+  final public let isLiabilityOnIssuer: Swift.Bool?
+  final public let challengeCancelReasonId: Swift.String?
+  final public let challengeCancelReason: Swift.String?
+  final public let errorCode: Swift.Int?
+  final public let errorDescription: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol JSONWebEncryptionHeader {
+  var alg: Swift.String { get }
+  var enc: Swift.String { get }
+  var epk: JOSESwift.ECPublicKey? { get }
+  var apu: Swift.String? { get }
+  var apv: Swift.String? { get }
+  subscript(index: Swift.String) -> Any? { get }
+  func jsonSerializedData() -> Foundation.Data
+  func allParameters() -> [Swift.String : Any]
+}
+public protocol JSONWebEncryption {
+  var header: Smart2Pay.JSONWebEncryptionHeader { get }
+  var encryptedKey: Foundation.Data { get }
+  var initializationVector: Foundation.Data { get }
+  var ciphertext: Foundation.Data { get }
+  var authenticationTag: Foundation.Data { get }
+  var compactSerializedString: Swift.String { get }
+  var compactSerializedData: Foundation.Data { get }
+  var additionalAuthenticatedData: Foundation.Data { get }
+  func decrypt(key: JOSESwift.JWK) throws -> Foundation.Data
+}
+extension Smart2Pay.PaymentManager.Environment : Swift.Equatable {}
+extension Smart2Pay.PaymentManager.Environment : Swift.Hashable {}
+extension Smart2Pay.PaymentManager.Environment : Swift.RawRepresentable {}
+extension Smart2Pay.Payment.PaymentProvider : Swift.Equatable {}
+extension Smart2Pay.Payment.PaymentProvider : Swift.Hashable {}
+extension Smart2Pay.Payment.PaymentProvider : Swift.RawRepresentable {}
+extension Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult : Swift.Equatable {}
+extension Smart2Pay.S2PAuth3dOutput.S2PAuth3dResult : Swift.Hashable {}
