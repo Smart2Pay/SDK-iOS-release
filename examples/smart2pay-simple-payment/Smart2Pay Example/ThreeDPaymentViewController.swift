@@ -61,7 +61,7 @@ class ThreeDPaymentViewController: UIViewController {
             currency: currency,
             creditCardToken: creditCardToken,
             securityCode: cardSecurityCode,
-            transactionStatus: "Y",
+            transactionStatus: auth3dOutput.result == .approved ? "Y" : "N",
             eci: eci,
             authenticationValue: authenticationValue,
             dsTransId: dsTransId,
